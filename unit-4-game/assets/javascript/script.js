@@ -3,12 +3,14 @@ var wins = 0;
 var losses = 0;
 var target = 0;
 
+
 $(document).ready(reset());
-$(document).ready(setGoal());
+
+
 
 function setGoal(){
     target = randomint(19,120);
-    $("#goalNum").text(target);
+    document.getElementById("goalNum").innerText = target;
 }
 
 function crystalShuffle(){
@@ -54,6 +56,7 @@ function checkResults(currentScore, target) {
         crystalShuffle(crystals);
         target = randomint(19,120);
         reset();
+        $("#prevResult").text("You won!");
     }
 
     else if(currentScore >= target){
@@ -62,6 +65,7 @@ function checkResults(currentScore, target) {
         crystalShuffle(crystals);
         target = randomint(19,120);
         reset();
+        $("#prevResult").text("You lost!");
     }
 
 }
